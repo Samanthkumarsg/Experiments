@@ -1,2 +1,3 @@
 # Travel-Web-API
-My Personal Practice Project - 1 This is a REST API based system for Tours and Hotels Business. ( Under Development )
+This is a REST API based project of a tourism and hotel business to fetch the package, orders and users details. Application uses mongoose as a database framework and express for nodeJS. All the data is retrieved through http requests.
+(My Practice application to play around.
