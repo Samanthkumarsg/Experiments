@@ -47,7 +47,12 @@ module.exports = {
                     requestType : "GET",
                     url : req.headers.host,
                     statuscode : 500,
-                    message : "Internal server error."
+                    error : {
+                        name : err.name,
+                        message : err.message,
+                        key : err.path,
+                        value : err.value
+                    }
                 })
             }
         });
@@ -85,7 +90,12 @@ module.exports = {
                     requestType : "GET",
                     url : req.headers.host,
                     statuscode : 404,
-                    message : "Package not found",
+                    error : {
+                        name : err.name,
+                        message : err.message,
+                        key : err.path,
+                        value : err.value
+                    }
                 })
             }
         });
@@ -106,9 +116,9 @@ module.exports = {
         .then( docs => {
             res.status(200).json({
                 config : {
-                    statuscode : 200,
                     requestType : "POST",
                     url : req.headers.host + "/package",
+                    statuscode : 200
                 },
                 response : {
                     createdDocument : docs
@@ -117,19 +127,49 @@ module.exports = {
         })
         .catch( err => {
             res.status(500).json({
-                statuscode : 500,
-                message : "There was an error saving your document",
-                host : req.headers.host,
+                requestType : "POST",
+                url : req.headers.host + "/package",
+                statuscode : 200,
                 error : {
                     name : err.name,
-                    message : err.message
+                    message : err.message,
+                    key : err.path,
+                    value : err.value
                 }
             })
         });
     },
     deletePackage : (req, res, next) => {
-        res.status(200).json({
-            message : "Got the request"
+        var packageId = req.params.id;
+        Package.remove({ _id : packageId })
+        .exec()
+        .then( docs => {
+            res.status(200).json({
+                config : {
+                    requestType : "GET",
+                    url : req.headers.host+"/package",
+                    statuscode : 200
+                },
+                response : {
+                    status : docs.ok==1?"Query wuccessfully executed":"There was an Error executing the query!",
+                    count : docs.n==0?"No matching ID to remove":docs.n
+                }
+            })
+        })
+        .catch( err => {
+            if(err) {
+                res.status(404).json({
+                    requestType : "GET",
+                    url : req.headers.host,
+                    statuscode : 404,
+                    error : {
+                        name : err.name,
+                        message : err.message,
+                        key : err.path,
+                        value : err.value
+                    }
+                })
+            }
         });
     }
 }
