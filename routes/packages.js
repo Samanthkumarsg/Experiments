@@ -6,8 +6,8 @@ const PackagesCtrl = require('../controllers/packages');
 router.get("/", PackagesCtrl.getAllPackages);
 router.get("/:id", PackagesCtrl.getPackageByID);
 router.post("/", PackagesCtrl.addPackage);
-// router.patch("/:PackageID", PackagesCtrl.updatePackage);
+router.put("/:id", PackagesCtrl.updatePackageMany);
 router.delete("/:id", PackagesCtrl.deletePackage);
-// router.put("/:id", PackagesCtrl.deletePackage);
+router.patch("/:id", PackagesCtrl.updatePackage);
 
 module.exports = router;

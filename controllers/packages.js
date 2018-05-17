@@ -4,7 +4,7 @@ const Package = require('../models/package-model');
 module.exports = {
     getAllPackages : (req, res, next) => {
         Package.find({})
-        .select("_id name places duration")
+        .select("_id name places duration price")
         .lean()
         .exec()
         .then( docs => {
@@ -60,29 +60,41 @@ module.exports = {
     getPackageByID : (req, res, next) => {
         var packageId = req.params.id;
         Package.find({_id : packageId})
-        .select("_id name places duration")
+        .select("_id name places duration price")
         .lean()
         .exec()
         .then( docs => {
-            res.status(200).json({
-                config : {
-                    requestType : "GET",
-                    url : req.headers.host+"/package",
-                    statuscode : 200
-                },
-                response : docs.map(
-                    doc => {
-                        return {
-                            id : doc._id,
-                            name : doc.name,
-                            price : doc.price,
-                            duration : doc.duration,
-                            places : doc.places,
-                            url : req.headers.host+"/package/"+doc._id
+            if(docs.length == 0){
+                res.status(200).json({
+                    config : {
+                        requestType : "GET",
+                        url : req.headers.host+"/package/"+packageId,
+                        statuscode : 200
+                    },
+                    response : "There was no matching ID"
+                });    
+            }
+            else{
+                res.status(200).json({
+                    config : {
+                        requestType : "GET",
+                        url : req.headers.host+"/package",
+                        statuscode : 200
+                    },
+                    response : docs.map(
+                        doc => {
+                            return {
+                                id : doc._id,
+                                name : doc.name,
+                                price : doc.price,
+                                duration : doc.duration,
+                                places : doc.places,
+                                url : req.headers.host+"/package/"+doc._id
+                            }
                         }
-                    }
-                )
-            })
+                    )
+                })   
+            }
         })
         .catch( err => {
             if(err) {
@@ -151,7 +163,7 @@ module.exports = {
                     statuscode : 200
                 },
                 response : {
-                    status : docs.ok==1?"Query wuccessfully executed":"There was an Error executing the query!",
+                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
                     count : docs.n==0?"No matching ID to remove":docs.n
                 }
             })
@@ -170,6 +182,73 @@ module.exports = {
                     }
                 })
             }
+        });
+    },
+    updatePackage : (req, res, next) => {
+        id = req.params.id;
+        let updateInfo = {};
+        for( docs of req.body ){
+            updateInfo[docs.propName] = docs.propValue
+        }
+        Package.update({ _id : id }, { $set : updateInfo })
+        .exec()
+        .then( docs => {
+            res.status(200).json({
+                config : {
+                    requestType : "PATCH",
+                    url : req.headers.host+"/package/"+id,
+                    statuscode : 200
+                },
+                response : {
+                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
+                    modifiedDocumentCount : docs.n,
+                }
+            })
+        })
+        .catch( err => {
+            res.status(500).json({
+                requestType : "PATCH",
+                url : req.headers.host + "/package",
+                statuscode : 200,
+                error : {
+                    name : err.name,
+                    message : err.message,
+                    key : err.path,
+                    value : err.value
+                }
+            })
+        });
+    },
+    updatePackageMany : (req, res, next) => {
+        id = req.params.id;
+        let updateInfo = req.body;
+        Package.update({ _id : id }, { $set : updateInfo })
+        .exec()
+        .then( docs => {
+            res.status(200).json({
+                config : {
+                    requestType : "PUT",
+                    url : req.headers.host+"/package/"+id,
+                    statuscode : 200
+                },
+                response : {
+                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
+                    modifiedDocumentCount : docs.n,
+                }
+            })
+        })
+        .catch( err => {
+            res.status(500).json({
+                requestType : "PUT",
+                url : req.headers.host + "/package",
+                statuscode : 200,
+                error : {
+                    name : err.name,
+                    message : err.message,
+                    key : err.path,
+                    value : err.value
+                }
+            })
         });
     }
 }
