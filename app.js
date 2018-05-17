@@ -21,8 +21,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/order", orders);
-app.use("/package", packages);
-app.use("/user", users);
+app.use("/orders", orders);
+app.use("/packages", packages);
+app.use("/users", users);
 
 module.exports = app;
