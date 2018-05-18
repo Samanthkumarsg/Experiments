@@ -4,7 +4,7 @@ const Package = require('../models/package-model');
 module.exports = {
     getAllPackages : (req, res, next) => {
         Package.find({})
-        .select("_id name places duration price")
+        .select("_id name places description duration price")
         .lean()
         .exec()
         .then( docs => {
@@ -31,6 +31,7 @@ module.exports = {
                             return {
                                 id : doc._id,
                                 name : doc.name,
+                                description : doc.description,
                                 price : doc.price,
                                 duration : doc.duration,
                                 places : doc.places,
@@ -60,7 +61,7 @@ module.exports = {
     getPackageByID : (req, res, next) => {
         var packageId = req.params.id;
         Package.find({_id : packageId})
-        .select("_id name places duration price")
+        .select("_id name places description duration price")
         .lean()
         .exec()
         .then( docs => {
@@ -86,6 +87,7 @@ module.exports = {
                             return {
                                 id : doc._id,
                                 name : doc.name,
+                                description : doc.description,
                                 price : doc.price,
                                 duration : doc.duration,
                                 places : doc.places,
@@ -116,6 +118,7 @@ module.exports = {
         var data = {
             _id : new mongoose.Types.ObjectId,
             name : req.body.name,
+            description : req.body.description,
             price : req.body.price,
             places: req.body.places,
             duration : {
