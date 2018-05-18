@@ -46,7 +46,7 @@ module.exports = {
             if(err) {
                 res.status(500).json({
                     requestType : "GET",
-                    url : req.headers.host,
+                    url : req.headers.host + '/packages',
                     statuscode : 500,
                     error : {
                         name : err.name,
