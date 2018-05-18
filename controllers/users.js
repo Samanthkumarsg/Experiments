@@ -211,5 +211,38 @@ module.exports = {
                 }
             })
         })
+    },
+    deleteUser : (req, res, next) => {
+        var username = req.params.username;
+        User.remove({ username : username })
+        .exec()
+        .then( docs => {
+            res.status(200).json({
+                config : {
+                    requestType : "DELETE",
+                    url : req.headers.host+"/users",
+                    statuscode : 200
+                },
+                response : {
+                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
+                    count : docs.n==0?"No matching username to remove":docs.n
+                }
+            })
+        })
+        .catch( err => {
+            if(err) {
+                res.status(404).json({
+                    requestType : "DELETE",
+                    url : req.headers.host + '/users',
+                    statuscode : 404,
+                    error : {
+                        name : err.name,
+                        message : err.message,
+                        key : err.path,
+                        value : err.value
+                    }
+                })
+            }
+        });
     }
 }

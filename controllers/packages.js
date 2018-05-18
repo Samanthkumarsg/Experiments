@@ -161,7 +161,7 @@ module.exports = {
         .then( docs => {
             res.status(200).json({
                 config : {
-                    requestType : "GET",
+                    requestType : "DELETE",
                     url : req.headers.host+"/package",
                     statuscode : 200
                 },
@@ -174,7 +174,7 @@ module.exports = {
         .catch( err => {
             if(err) {
                 res.status(404).json({
-                    requestType : "GET",
+                    requestType : "DELETE",
                     url : req.headers.host,
                     statuscode : 404,
                     error : {
