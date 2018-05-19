@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../models/user-model');
 
 module.exports = {
@@ -95,8 +96,7 @@ module.exports = {
                         },
                         response : {
                             type : 'success',
-                            message : 'records saved',
-                            docs : response
+                            message : 'records saved'
                         }
                     })
                 })
@@ -189,7 +189,13 @@ module.exports = {
                         response : {
                             type : 'success',
                             message : response == true?'Login Success':'Passwords do not match',
-                            docs : doc
+                            token : response == true?jwt.sign({data: username}, 'myPrivateKey', { expiresIn: '1h' }):null,
+                            docs : doc.map( doc => {
+                                return {
+                                    id : doc._id,
+                                    username : doc.username
+                                }
+                            })
                         }
                     })
                 }
