@@ -2,12 +2,12 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
     checkAuthentication : (req, res, next) => {
-        var token = req.headers.token.split(" ")[1];
-        console.log(token);
-        try {
+        if(req.headers.token){
+            var token = req.headers.token.split(" ")[1];
             var decoded = jwt.verify(token, 'myPrivateKey');
             next();
-        } catch(err) {
+        }
+        else{
             res.status(500).json({
                 config : {
                     requestType : "POST",
@@ -16,9 +16,8 @@ module.exports = {
                 },
                 response : {
                     type : "error",
-                    name : err.name,
-                    key : err.path,
-                    value : err.value
+                    name : "Authentication Error",
+                    message : "Token doesn't match"
                 }
             })
         }
