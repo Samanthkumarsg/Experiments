@@ -15,7 +15,9 @@ module.exports = {
                         url : req.headers.host+"/orders",
                         statuscode : 200
                     },
-                    response : "No Orders found."
+                    response : {
+                        message : "No Orders found."
+                    }
                 })    
             }
             else{
