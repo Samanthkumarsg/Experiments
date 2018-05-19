@@ -248,68 +248,75 @@ module.exports = {
     updateUser : (req, res, next) => {
         let username = req.params.username;
         let updateInfo = {};
-        for( docs of req.body ){
-            updateInfo[docs.propName] = docs.propValue
+        if(req.body[0].propName == "password"){
+            bcrypt.hash( req.body[0].propValue, 10, (err, hash) => {
+                if(err) {
+                    console.log("There was an error!")
+                }
+                updateInfo['password'] = hash;
+                User.update({ username : username }, { $set : updateInfo })
+                .exec()
+                .then( docs => {
+                    res.status(200).json({
+                        config : {
+                            requestType : "PATCH",
+                            url : req.headers.host+"/users/"+username,
+                            statuscode : 200
+                        },
+                        response : {
+                            status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
+                            modifiedDocumentCount : docs.n,
+                        }
+                    })
+                })
+                .catch( err => {
+                    res.status(500).json({
+                        requestType : "PATCH",
+                        url : req.headers.host + "/users/"+username,
+                        statuscode : 200,
+                        error : {
+                            name : err.name,
+                            message : err.message,
+                            key : err.path,
+                            value : err.value
+                        }
+                    })
+                });
+            });
         }
-        User.update({ username : username }, { $set : updateInfo })
-        .exec()
-        .then( docs => {
-            res.status(200).json({
-                config : {
+        else{
+            for( docs of req.body ){
+                updateInfo[docs.propName] = docs.propValue;
+                console.log(updateInfo, "Not PW");
+            }
+            User.update({ username : username }, { $set : updateInfo })
+            .exec()
+            .then( docs => {
+                res.status(200).json({
+                    config : {
+                        requestType : "PATCH",
+                        url : req.headers.host+"/users/"+username,
+                        statuscode : 200
+                    },
+                    response : {
+                        status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
+                        modifiedDocumentCount : docs.n,
+                    }
+                })
+            })
+            .catch( err => {
+                res.status(500).json({
                     requestType : "PATCH",
-                    url : req.headers.host+"/users/"+username,
-                    statuscode : 200
-                },
-                response : {
-                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
-                    modifiedDocumentCount : docs.n,
-                }
-            })
-        })
-        .catch( err => {
-            res.status(500).json({
-                requestType : "PATCH",
-                url : req.headers.host + "/users/"+username,
-                statuscode : 200,
-                error : {
-                    name : err.name,
-                    message : err.message,
-                    key : err.path,
-                    value : err.value
-                }
-            })
-        });
-    },
-    updateUserMany : (req, res, next) => {
-        username = req.params.username;
-        let updateInfo = req.body;
-        User.update({ username : username }, { $set : updateInfo })
-        .exec()
-        .then( docs => {
-            res.status(200).json({
-                config : {
-                    requestType : "PUT",
-                    url : req.headers.host+"/package/"+username,
-                    statuscode : 200
-                },
-                response : {
-                    status : docs.ok==1?"Query successfully executed":"There was an Error executing the query!",
-                    modifiedDocumentCount : docs.n,
-                }
-            })
-        })
-        .catch( err => {
-            res.status(500).json({
-                requestType : "PUT",
-                url : req.headers.host + "/users/" + username,
-                statuscode : 200,
-                error : {
-                    name : err.name,
-                    message : err.message,
-                    key : err.path,
-                    value : err.value
-                }
-            })
-        });
+                    url : req.headers.host + "/users/"+username,
+                    statuscode : 200,
+                    error : {
+                        name : err.name,
+                        message : err.message,
+                        key : err.path,
+                        value : err.value
+                    }
+                })
+            });
+        }
     }
-}
+};
