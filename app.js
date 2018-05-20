@@ -16,7 +16,8 @@ mongoose.connect('mongodb://localhost:27017/toursapp').then(
 
 const orders = require('./routes/orders');
 const packages = require('./routes/packages');
-const users = require('./routes/users');;
+const users = require('./routes/users');
+const logs = require('./routes/logs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/orders", orders);
 app.use("/packages", packages);
 app.use("/users", users);
+app.use("/logs", logs);
 
 //Error handling
 app.use("/", (req, res, next) => {
