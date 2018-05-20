@@ -7,7 +7,9 @@ const Log = new Schema({
     requestURL : { type : String, required : true },
     requestBody : { type : Object },
     requestParams : { type : Object },
-    token : { type : String }
+    token : { type : String, required : true },
+    tokenExpiry : { type : String, required : true },
+    username : { type : String, required : true }
 },
 {
     timestamps : {

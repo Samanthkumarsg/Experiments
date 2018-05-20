@@ -7,13 +7,16 @@ module.exports = {
         if(req.headers.token){
             var token = req.headers.token.split(" ")[1];
             var decoded = jwt.verify(token, 'myPrivateKey');
+            console.log(decoded);
             var log = new Log({
                 _id : new mongoose.Types.ObjectId,
                 requestType : req.method,
                 requestURL : req.headers.host + req.baseUrl + "/",
                 requestBody : req.body,
                 requestParams : req.params,
-                token : token
+                token : token,
+                tokenExpiry : decoded.exp,
+                username : decoded.data
             })
             log.save();
             next();
