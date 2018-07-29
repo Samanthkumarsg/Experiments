@@ -1,0 +1,20 @@
+{
+	"name": "mnist-digit-recognizer",
+	"version": "1.0.0",
+	"description": "Digit Recognizer",
+	"main": "./scripts/serve/server.js",
+	"scripts": {
+		"train": "node ./scripts/train/train.js",
+		"serve": "node ./scripts/serve/server.js"
+	},
+	"author": "Velan Salis",
+	"license": "ISC",
+	"dependencies": {
+		"@tensorflow/tfjs": "^0.12.2",
+		"@tensorflow/tfjs-node": "^0.1.9",
+		"body-parser": "^1.18.3",
+		"ejs": "^2.6.1",
+		"express": "^4.16.3",
+		"fs": "0.0.1-security"
+	}
+}
