@@ -1,3 +1,1 @@
-const fs = require("fs");
-
-fs.readFileSync()
+const data = require("./data");
