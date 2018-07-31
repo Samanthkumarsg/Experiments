@@ -6,20 +6,23 @@ const data = convertedData.data;
 
 const batchSize = 3;
 const iterations = 1;
-
-function train() {
-	tf.tidy(() => {
-		for (i = 0; i < iterations; i++) {
-			let batch = getBatch(data, i, batchSize);
-			let xs = tf.tensor2d(batch.xs, [batchSize, batch.xs[0].length]);
-			let ys = tf.tensor1d(batch.ys, "int32");
-			xs.print();
-			let labels = tf.oneHot(ys, 4);
-			labels.print();
-		}
-		console.log(tf.memory().numTensors);
-	});
+const labelSize = 4;
+async function train() {
+	for (i = 0; i < iterations; i++) {
+		let batch = getBatch(data, i, batchSize);
+		let xs = tf.tensor2d(batch.xs, [batchSize, batch.xs[0].length]);
+		let ys = tf.tensor1d(batch.ys, "int32");
+		xs.print();
+		let labels = tf.oneHot(ys, labelSize);
+		labels.print();
+		let h = await model.fit(xs, ys);
+		xs.dispose();
+		ys.dispose();
+		labels.dispose();
+		console.log(h);
+	}
 	console.log(tf.memory().numTensors);
+	console.log(`Tensors remaining : ${tf.memory().numTensors}`);
 }
 
 function getBatch(array, i, size) {
@@ -33,4 +36,4 @@ function getBatch(array, i, size) {
 	};
 }
 
-train();
+train().catch(err => console.log(err));
