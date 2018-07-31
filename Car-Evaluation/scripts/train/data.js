@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-require("pretty-error").start();
 
 const Xclasses = [
 	["vhigh", "high", "med", "low"], //buying
