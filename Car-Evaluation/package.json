@@ -1,11 +1,14 @@
 {
-  "name": "irisclassifier",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "train": "node ./scripts/train/train.js"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "careval",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"train": "node scripts/train/train.js"
+	},
+	"author": "Velan Salis",
+	"license": "ISC",
+	"dependencies": {
+		"pretty-error": "^2.1.1"
+	}
 }
