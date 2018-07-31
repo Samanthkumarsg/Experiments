@@ -2,4 +2,14 @@ const convertedData = require("./data");
 const data = convertedData.data;
 const labels = convertedData.labels;
 
-console.log(data.xs.slice(900, 920), data.ys.slice(900, 920));
+const batchSize = 3;
+
+function train() {
+	tf.tidy(() => {
+		for (i = 0; i < iterations; i++) {
+			let batch = getBatch(data.xs, i, batchSize);
+		}
+	});
+}
+
+function getBatch(array, start, size) {}

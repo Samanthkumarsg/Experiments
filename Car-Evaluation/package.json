@@ -9,6 +9,8 @@
 	"author": "Velan Salis",
 	"license": "ISC",
 	"dependencies": {
+		"@tensorflow/tfjs": "^0.12.4",
+		"@tensorflow/tfjs-node": "^0.1.9",
 		"pretty-error": "^2.1.1"
 	}
 }

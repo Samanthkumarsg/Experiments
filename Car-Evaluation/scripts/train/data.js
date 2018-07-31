@@ -16,7 +16,7 @@ const Yclasses = ["unacc", "acc", "good", "vgood"];
 const label = ["buying", "maint", "doors", "persons", "lug_boot", "safety"];
 
 // Reading the Data
-let file = fs.readFileSync(path.resolve("./data/car-data.csv"), "utf8");
+let file = fs.readFileSync(path.resolve("./data/test.csv"), "utf8");
 let xs = [],
 	ys = [];
 
@@ -30,7 +30,7 @@ file.split("\n").forEach(_v1 => {
 	let temp = [];
 	_v1.split(",").forEach((_v2, index) => {
 		if (index == 6) ys.push(convertVals(_v2, Yclasses));
-		else temp.push(convertVals(_v2, Xclasses[index]));
+		else temp.push((10 - convertVals(_v2, Xclasses[index])) / 10);
 	});
 	xs.push(temp);
 });
