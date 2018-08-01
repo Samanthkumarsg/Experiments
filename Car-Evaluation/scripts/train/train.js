@@ -4,21 +4,23 @@ const convertedData = require("./data");
 const data = convertedData.data;
 // const labels = convertedData.labels;
 
-const batchSize = 3;
+const batchSize = 100;
 const iterations = 1;
 const labelSize = 4;
 async function train() {
 	for (i = 0; i < iterations; i++) {
 		let batch = getBatch(data, i, batchSize);
 		let xs = tf.tensor2d(batch.xs, [batchSize, batch.xs[0].length]);
-		let ys = tf.tensor1d(batch.ys, "int32");
+		let y = tf.tensor1d(batch.ys, "int32");
 		xs.print();
-		let labels = tf.oneHot(ys, labelSize);
-		labels.print();
-		let h = await model.fit(xs, ys);
+		let ys = tf.oneHot(y, labelSize);
+		ys.print();
+		let h = await model.fit(xs, ys, {
+			shuffle: true
+		});
 		xs.dispose();
 		ys.dispose();
-		labels.dispose();
+		y.dispose();
 		console.log(h);
 	}
 	console.log(tf.memory().numTensors);
