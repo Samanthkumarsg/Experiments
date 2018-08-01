@@ -15,7 +15,7 @@ const Yclasses = ["unacc", "acc", "good", "vgood"];
 const label = ["buying", "maint", "doors", "persons", "lug_boot", "safety"];
 
 // Reading the Data
-let file = fs.readFileSync(path.resolve("./data/test.csv"), "utf8");
+let file = fs.readFileSync(path.resolve("./data/car-data.csv"), "utf8");
 let xs = [],
 	ys = [];
 

@@ -4,8 +4,8 @@ const convertedData = require("./data");
 const data = convertedData.data;
 // const labels = convertedData.labels;
 
-const batchSize = 100;
-const iterations = 1;
+const batchSize = 2;
+const iterations = 3;
 const labelSize = 4;
 async function train() {
 	for (i = 0; i < iterations; i++) {
@@ -16,14 +16,15 @@ async function train() {
 		let ys = tf.oneHot(y, labelSize);
 		ys.print();
 		let h = await model.fit(xs, ys, {
-			shuffle: true
+			shuffle: true,
+			epochs: 5
 		});
+		console.log(tf.memory().numTensors);
 		xs.dispose();
 		ys.dispose();
 		y.dispose();
-		console.log(h);
+		// console.log(h);
 	}
-	console.log(tf.memory().numTensors);
 	console.log(`Tensors remaining : ${tf.memory().numTensors}`);
 }
 
