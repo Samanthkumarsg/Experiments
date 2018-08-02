@@ -1,0 +1,47 @@
+canvas {
+	border: 10px solid black;
+	float: left;
+}
+.buttons {
+	float: left;
+	width: 300px;
+}
+.color-selector {
+	/* float: left; */
+	height: 40px;
+	margin: 1px;
+	width: 200px;
+	font-weight: bold;
+	border: 2px solid black;
+	cursor: pointer;
+}
+.purple {
+	background: #ab47bc;
+}
+.pink {
+	background: #ec407a;
+}
+.blue {
+	background: #5c6bc0;
+}
+.green {
+	background: #66bb6a;
+}
+.yellow {
+	background: #ffee58;
+}
+.orange {
+	background: #ff7043;
+}
+.red {
+	background: #ef5350;
+}
+.grey {
+	background: #78909c;
+}
+.brown {
+	background: #8d6e63;
+}
+.white {
+	background: #ffffff;
+}

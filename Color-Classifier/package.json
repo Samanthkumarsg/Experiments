@@ -2,15 +2,17 @@
 	"name": "careval",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "./scripts/train/server.js",
 	"scripts": {
-		"train": "node scripts/train/train.js"
+		"train": "node scripts/train/server.js"
 	},
 	"author": "Velan Salis",
 	"license": "ISC",
 	"dependencies": {
 		"@tensorflow/tfjs": "^0.12.4",
 		"@tensorflow/tfjs-node": "^0.1.9",
+		"body-parser": "^1.18.3",
+		"ejs": "^2.6.1",
 		"express": "^4.16.3"
 	}
 }
