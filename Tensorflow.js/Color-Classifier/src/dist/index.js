@@ -18,13 +18,17 @@ colorCollection = [
 ];
 
 async function trainColor(color, label) {
+	let col = [];
+	color[0].forEach(element => {
+		col.push(element / 255);
+	});
 	let config = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-			color: color[0],
+			color: col,
 			label: colorCollection.indexOf(label)
 		})
 	};

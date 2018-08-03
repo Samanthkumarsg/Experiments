@@ -17,15 +17,12 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/train", (req, res, next) => {
-	let color = req.body.color;
-	let label = tf.scalar(req.body.label, "int32");
-	let xs = [],
-		ys = [];
-	color.forEach(element => {
-		xs.push(element / 255);
-	});
-	ys = tf.oneHot(label, 10);
-	console.log(xs, label);
+	let color = [req.body.color];
+	let label = req.body.label;
+	let xs = tf.tensor2d(color);
+	let ys = tf.oneHot(tf.scalar(label, "int32"), 10);
+	xs.print();
+	ys.print();
 	res.send();
 });
 
