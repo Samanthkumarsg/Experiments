@@ -2,6 +2,8 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const path = require("path");
+const model = require("./model").model;
+const tf = require("./model").tf;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -15,39 +17,16 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/train", (req, res, next) => {
-	// let a = [
-	// 	{ color: [77, 192, 0], label: "purple" },
-	// 	{ color: [79, 3, 23], label: "pink" },
-	// 	{ color: [132, 104, 207], label: "blue" },
-	// 	{ color: [53, 206, 166], label: "green" },
-	// 	{ color: [81, 189, 24], label: "green" },
-	// 	{ color: [238, 196, 221], label: "yellow" },
-	// 	{ color: [184, 240, 9], label: "orange" }
-	// ];
-	let a = req.body;
-	let labels = [
-		"purple",
-		"pink",
-		"blue",
-		"green",
-		"yellow",
-		"orange",
-		"red",
-		"grey",
-		"brown",
-		"white"
-	];
+	let color = req.body.color;
+	let label = tf.scalar(req.body.label, "int32");
 	let xs = [],
 		ys = [];
-	a.forEach(val => {
-		let temp = [];
-		ys.push(labels.indexOf(val.label));
-		val.color.forEach(element => {
-			temp.push(element / 255);
-		});
-		xs.push(temp);
+	color.forEach(element => {
+		xs.push(element / 255);
 	});
-	console.log(xs, ys);
+	ys = tf.oneHot(label, 10);
+	console.log(xs, label);
+	res.send();
 });
 
 module.exports = app;

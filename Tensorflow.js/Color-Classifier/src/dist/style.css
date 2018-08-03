@@ -4,13 +4,13 @@ canvas {
 }
 .buttons {
 	float: left;
-	width: 300px;
+	width: 40px;
 }
 .color-selector {
 	/* float: left; */
 	height: 40px;
 	margin: 1px;
-	width: 200px;
+	width: 70px;
 	font-weight: bold;
 	border: 2px solid black;
 	cursor: pointer;
