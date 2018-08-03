@@ -6,16 +6,16 @@ Regression analysis models with Tensorflow.js. In statistical modeling, **Regres
 
 Contents of the repository and descriptions are as follows
 
--   [1D Linear regression](https://en.wikipedia.org/wiki/Linear_regression) - Linear regression on `y=mx+c`
--   [2D Polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) - Polynomial regression on `y=ax^2+bx+c`
--   [3D Linear regression](https://en.wikipedia.org/wiki/Polynomial_regression) - Polynomial regression on `y=ax^3+bx^2+cx+d`
+- [1D Linear regression](https://en.wikipedia.org/wiki/Linear_regression) - Linear regression on `y=mx+c`
+- [2D Polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) - Polynomial regression on `y=ax^2+bx+c`
+- [3D Linear regression](https://en.wikipedia.org/wiki/Polynomial_regression) - Polynomial regression on `y=ax^3+bx^2+cx+d`
 
 ### Getting the Code
 
 Download or clone the repository and install all the dependencies.
 
 ```
-git clone https://github.com/velansalis/TensorflowExperiments
+git clone https://github.com/velansalis/xp_Tensorflow
 cd TensorflowExperiments/Regression-Analysis
 npm install
 ```
