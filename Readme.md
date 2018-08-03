@@ -4,7 +4,7 @@ Tensorflow is a machine learning library that enables us to use train the models
 
 ### Contents of this Repository
 
-    - Javscript
+    - Tensorflow.js ( Experiments with Javscript )
     - + Regression Models
     - + MNIST digits
     - + Color classifier
