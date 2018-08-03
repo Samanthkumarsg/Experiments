@@ -27,5 +27,17 @@ function addColor(obj) {
 }
 
 function train() {
-	console.log(container);
+	fetch("/train", {
+		method: "POST",
+		body: JSON.stringify(container),
+		headers: {
+			"Content-Type": "application/json"
+		}
+	})
+		.then(res => {
+			console.log("Hey", res);
+		})
+		.catch(err => {
+			console.log(err);
+		});
 }
