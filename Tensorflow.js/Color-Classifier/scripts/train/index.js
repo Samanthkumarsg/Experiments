@@ -16,6 +16,19 @@ app.get("/", (req, res, next) => {
 	res.render("index.ejs");
 });
 
+app.post("/predict", async (req, res, next) => {
+	let xs = tf.tensor2d([req.body.color]);
+	let predX = model.predict(xs);
+	let max = predX.argMax(1).dataSync();
+	console.log(max);
+	predX.dispose();
+	xs.dispose();
+	// tf.argMax()
+	res.status(200).json({
+		colIndex: max
+	});
+});
+
 app.post("/train", async (req, res, next) => {
 	let color = [req.body.color];
 	let label = req.body.label;
@@ -24,21 +37,21 @@ app.post("/train", async (req, res, next) => {
 		.oneHot(tf.scalar(label, "int32"), 10)
 		.cast("float32")
 		.reshape([1, 10]);
-	xs.print();
-	ys.print();
-	console.log(xs.shape, ys.shape);
 	await model
 		.fit(xs, ys, {
 			epochs: 1,
 			shuffle: true
 		})
-		.then(res => {
-			console.log(res);
+		.then(result => {
+			xs.dispose();
+			ys.dispose();
+			res.status(200).send(result);
 		})
 		.catch(err => {
-			console.log(err);
+			xs.dispose();
+			ys.dispose();
+			res.status(200).send(result);
 		});
-	res.send();
 });
 
 module.exports = app;

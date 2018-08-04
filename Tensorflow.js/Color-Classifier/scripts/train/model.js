@@ -11,14 +11,14 @@ const hidden = tf.layers.dense({
 model.add(hidden);
 const output = tf.layers.dense({
 	units: 10,
-	activation: "softmax"
+	activation: "sigmoid"
 });
 model.add(output);
 
-const optimizer = tf.train.sgd(0.25);
+const optimizer = tf.train.sgd(0.5);
 model.compile({
 	optimizer: optimizer,
-	loss: "categoricalCrossentropy",
+	loss: "meanSquaredError",
 	metrics: ["accuracy"]
 });
 
