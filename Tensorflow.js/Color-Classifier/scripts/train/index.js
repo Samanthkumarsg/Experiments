@@ -39,7 +39,7 @@ app.post("/train", async (req, res, next) => {
 		.reshape([1, 10]);
 	await model
 		.fit(xs, ys, {
-			epochs: 1,
+			epochs: 10,
 			shuffle: true
 		})
 		.then(result => {
