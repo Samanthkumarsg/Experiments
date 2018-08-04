@@ -1,6 +1,6 @@
 ## Tensorflow Experiments
 
-Tensorflow is a machine learning library that enables us to use train the models in the browser as well as in an environment like python. Currently Tensorflow is supported with Javascript and Python and this repository is my experiments with Tensorflow, both with Javascript and Python.
+Tensorflow is a machine learning library that enables us to use train the models in the browser as well as in an environment like python. Currently Tensorflow is supported with Javascript and Python and this repository is my experiments with Tensorflow, both with Javascript and Python :)
 
 ### Contents of this Repository
 
@@ -11,4 +11,4 @@ Tensorflow is a machine learning library that enables us to use train the models
     - + XOR classifer
 
     - Python
-    - +
+    - + (Yet to be developed)

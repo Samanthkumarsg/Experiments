@@ -8,7 +8,7 @@ First clone or download the repository to your local machine and install all the
 
 ```
 git clone https://github.com/velansalis/xp_Tensorflow
-cd TensorflowExperiments/Color-Classifier
+cd xp_Tensorflow/Tensorflow.js/Color-Classifier
 npm install
 ```
 

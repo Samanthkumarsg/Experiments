@@ -10,7 +10,7 @@ First clone or download the repository to your local machine and install all the
 
 ```
 git clone https://github.com/velansalis/xp_Tensorflow
-cd TensorflowExperiments/MNIST-Digit-Classifier
+cd xp_Tensorflow/Tensorflow.js/MNIST-Digit-Classifier
 npm install
 ```
 
