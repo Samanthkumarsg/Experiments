@@ -15,8 +15,8 @@ Contents of the repository and descriptions are as follows
 Download or clone the repository and install all the dependencies.
 
 ```
-git clone https://github.com/velansalis/xp_Tensorflow
-cd xp_Tensorflow/Tensorflow.js/Regression-Analysis
+git clone https://github.com/velansalis/xp_MachineLearning
+cd xp_MachineLearning/Tensorflow.js/Regression-Analysis
 npm install
 ```
 

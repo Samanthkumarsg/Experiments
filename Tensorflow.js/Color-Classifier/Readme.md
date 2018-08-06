@@ -7,8 +7,8 @@ Train the color classifier in your local machine yourself. This color classifier
 First clone or download the repository to your local machine and install all the dependencies by running the following code.
 
 ```
-git clone https://github.com/velansalis/xp_Tensorflow
-cd xp_Tensorflow/Tensorflow.js/Color-Classifier
+git clone https://github.com/velansalis/xp_MachineLearning
+cd xp_MachineLearning/Tensorflow.js/Color-Classifier
 npm install
 ```
 

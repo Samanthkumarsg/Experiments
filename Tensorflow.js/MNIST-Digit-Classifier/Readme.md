@@ -9,8 +9,8 @@ The **[MNIST database](http://yann.lecun.com/exdb/mnist/)** of handwritten digit
 First clone or download the repository to your local machine and install all the dependencies by running the following code.
 
 ```
-git clone https://github.com/velansalis/xp_Tensorflow
-cd xp_Tensorflow/Tensorflow.js/MNIST-Digit-Classifier
+git clone https://github.com/velansalis/xp_MachineLearning
+cd xp_MachineLearning/Tensorflow.js/MNIST-Digit-Classifier
 npm install
 ```
 
