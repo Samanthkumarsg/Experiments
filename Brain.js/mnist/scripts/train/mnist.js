@@ -49,9 +49,9 @@ module.exports = {
 			batchedY = [];
 		batched.forEach(element => {
 			let current = Object.entries(element)[0];
-			batchedX.push(parseInt(current[0]));
+			batchedY.push(parseInt(current[0]));
 			current[1].forEach(value => {
-				batchedY.push(parseFloat(value));
+				batchedX.push(parseFloat(value));
 			});
 		});
 		return {
