@@ -47,16 +47,17 @@ module.exports = {
 		let batched = array.slice(i * size, i * size + size);
 		let batchedX = [],
 			batchedY = [];
+		let json = new Array();
 		batched.forEach(element => {
+			batchedX = [];
+			batchedY = [];
 			let current = Object.entries(element)[0];
 			batchedY.push(parseInt(current[0]));
 			current[1].forEach(value => {
 				batchedX.push(parseFloat(value));
 			});
+			json.push({ input: batchedY, output: batchedX });
 		});
-		return {
-			x: batchedX,
-			y: batchedY
-		};
+		return json;
 	}
 };
