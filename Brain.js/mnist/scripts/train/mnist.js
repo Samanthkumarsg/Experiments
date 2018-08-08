@@ -2,17 +2,13 @@ const fs = require("fs");
 const path = require("path");
 
 const trainImages = fs.readFileSync(
-	path.resolve("./data/train-images-idx3-ubyte")
+	path.resolve("data/train-images.idx3-ubyte")
 );
 const trainLabels = fs.readFileSync(
-	path.resolve("./data/train-labels-idx1-ubyte")
+	path.resolve("data/train-labels.idx1-ubyte")
 );
-const testImages = fs.readFileSync(
-	path.resolve("./data/t10k-images-idx3-ubyte")
-);
-const testLabels = fs.readFileSync(
-	path.resolve("./data/t10k-labels-idx1-ubyte")
-);
+const testImages = fs.readFileSync(path.resolve("data/t10k-images.idx3-ubyte"));
+const testLabels = fs.readFileSync(path.resolve("data/t10k-labels.idx1-ubyte"));
 let trainValues = new Array();
 let testValues = new Array();
 
