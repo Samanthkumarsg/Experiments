@@ -1,0 +1,15 @@
+{
+	"name": "xor-classifier",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"train": "node ./scripts/train/train.js",
+		"serve": "node ./scripts/serve/serve.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"brain.js": "^1.2.4"
+	}
+}
