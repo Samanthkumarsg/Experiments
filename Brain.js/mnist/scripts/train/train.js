@@ -1,11 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-const brain = require("brain.js");
 const mnist = require("./mnist");
+const net = require("./brain");
 
 let batchSize = 60;
 let iterations = 1000;
-let net = new brain.NeuralNetwork();
 
 async function train() {
 	for (let i = 0; i < iterations; i++) {
@@ -27,5 +26,10 @@ function saveModel() {
 }
 
 train()
-	.then(data => saveModel())
-	.catch(err => console.log(err));
+	.then(data => {
+		console.log(data);
+		saveModel();
+	})
+	.catch(err => {
+		console.log(err);
+	});

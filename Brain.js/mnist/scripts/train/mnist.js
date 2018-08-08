@@ -38,6 +38,19 @@ for (var image = 0; image < 10000; image++) {
 	testValues.push(imageData);
 }
 console.log(`Converted testing data with ${testValues.length} records`);
+
+function createOneHot(val) {
+	let current = [];
+	for (i = 0; i < 10; i++) {
+		if (i == val) {
+			current.push(1);
+		} else {
+			current.push(0);
+		}
+	}
+	return current;
+}
+
 module.exports = {
 	values: {
 		trainSet: trainValues,
@@ -52,11 +65,12 @@ module.exports = {
 			batchedX = [];
 			batchedY = [];
 			let current = Object.entries(element)[0];
-			batchedY.push(parseInt(current[0]));
+			let oneHot = createOneHot(parseInt(current[0]));
+			batchedY = oneHot;
 			current[1].forEach(value => {
 				batchedX.push(parseFloat(value));
 			});
-			json.push({ input: batchedY, output: batchedX });
+			json.push({ input: batchedX, output: batchedY });
 		});
 		return json;
 	}
