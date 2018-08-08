@@ -2,6 +2,17 @@
 
 This project in this repository is my `REST API` experiment, it is to manage the tourism based business electronically through REST API methodology. All the requests and responses are made by `HTTP` and a sophisticated API handles all of it. This application uses `JWT` instead of sessions
 
+### Installation
+
+Copy and paste following code on your terminal
+
+```
+https://github.com/velansalis/xp_REST-API.git
+cd xp_REST-API
+npm install
+npm run start
+```
+
 ### Using the System
 
 All the requests are made to the server as follows
