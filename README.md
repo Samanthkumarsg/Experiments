@@ -1,21 +1,28 @@
-# Tourism REST API
+# Experiments with REST API
 
-> Introduction
+This project in this repository is my `REST API` experiment, it is to manage the tourism based business electronically through REST API methodology. All the requests and responses are made by `HTTP` and a sophisticated API handles all of it. This application uses `JWT` instead of sessions
 
-This website is to manage the tours and travels based business electronically through REST API system. All the requests and responses are made by HTTP and a sophisticated API handles all of it. This application follows API first mechanism. And uses JWT instead of Sessions
+### Using the System
 
-> Available routes are as follows
-- /users - (GET, PUT, POST, DELETE, PATCH) 
-- /packages - (GET, PUT, POST, DELETE, PATCH) 
-- /orders - (GET, PUT, POST, DELETE, PATCH) 
-- /logs - (GET, PUT, POST, DELETE, PATCH) 
+All the requests are made to the server as follows
 
-> Details
-- /users - To manage the user details
-- /packages - To manage the tourism packages
-- /orders - To store user and packages details after ordering by refering the above two models
-- /logs - Stores all the operations on the server using JWT with username, timestamp,request type and route
+```
+<domain-name> <route>
+GET : https://example.com/users
+DELETE : https://example.com/users/126fhs2
+```
 
-> Epilogue
+Where `126fhs2` is the ID of the user
 
-This project is just a representation of how the node server works when Implemented with REST API and JSON web tokens. So this project just has a backend and no front end or a view. POST, DELETE and other requests can be made by using any applications like Postman to the server address specified. Happy coding :)
+### API Information
+
+| Routes   | Methods                       | Description                                                                 |
+| -------- | ----------------------------- | --------------------------------------------------------------------------- |
+| users    | GET, PUT, POST, DELETE, PATCH | Manages the users that have registered on the system                        |
+| packages | GET, PUT, POST, DELETE, PATCH | Manages the tour packages that the user can currently access while browsing |
+| orders   | GET, PUT, POST, DELETE, PATCH | Manages the orders made by the user                                         |
+| logs     | GET                           | Returns all the transactions and actions done by the user on the server     |
+
+### Tailend
+
+This project is just a representation of how the node server works when Implemented with REST API and JSON web tokens. POST, DELETE and other requests can be made by using any applications like Postman or any other applications or techniques.
