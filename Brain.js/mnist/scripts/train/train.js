@@ -19,6 +19,13 @@ async function train() {
 	}
 }
 
+function saveModel() {
+	fs.writeFile("model.json", JSON.stringify(net.toJSON()), function(err) {
+		if (err) return console.log(err);
+		console.log("The trained model is saved as model.json");
+	});
+}
+
 train()
-	.then(data => console.log(data))
+	.then(data => saveModel())
 	.catch(err => console.log(err));
