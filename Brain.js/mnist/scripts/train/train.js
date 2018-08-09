@@ -4,7 +4,7 @@ const mnist = require("./mnist");
 const net = require("./brain");
 
 let batchSize = 60;
-let iterations = 1000;
+let iterations = 200;
 
 async function train() {
 	for (let i = 0; i < iterations; i++) {

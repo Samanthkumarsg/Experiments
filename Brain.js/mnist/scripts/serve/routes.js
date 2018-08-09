@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const net = require("../train/brain");
 const model = JSON.parse(fs.readFileSync("model.json", "utf8"));
 
 module.exports = {
@@ -8,6 +9,10 @@ module.exports = {
 	},
 	predict: async (req, res, next) => {
 		let loadedData = req.body;
-		console.log(model);
+		net.fromJSON(model);
+		let result = net.run(loadedData);
+		res.status(200).json({
+			results: result
+		});
 	}
 };
