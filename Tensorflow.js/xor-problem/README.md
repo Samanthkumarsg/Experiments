@@ -6,7 +6,7 @@ The XOr, or “exclusive or”, problem is a classic problem in ANN research. It
 
 ```
 git clone https://github.com/velansalis/xp_MachineLearning
-cd xp_MachineLearning/Tensorflow.js/XOR-Problem
+cd xp_MachineLearning/Tensorflow.js/xor-problem
 npm install
 ```
 
