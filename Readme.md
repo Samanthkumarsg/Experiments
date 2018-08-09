@@ -10,6 +10,6 @@ Machine learning is a subset of artificial intelligence in the field of computer
     |-- Color classifier
     |-- XOR classifier
     | Brain.js ( Javascript )
-    |-- XOR classifier
+    |-- MNIST digits
 
 To use examples from Tensorflow (python), Virtualenv is required. Download virtualenv by following this tutorial https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
