@@ -36,12 +36,8 @@ async function trainColor(color, label) {
 	fetch("/train", config)
 		.then(res => {
 			res.json().then(_v => {
-				document.querySelector(".loss").innerHTML = `Loss : ${
-					_v.history.loss[0]
-				}`;
-				document.querySelector(".accuracy").innerHTML = `Accuracy : ${
-					_v.history.acc[0]
-				}`;
+				console.log(_v);
+				document.querySelector(".loss").innerHTML = `Loss : ${_v.error}`;
 			});
 			drawRandomColor();
 		})
@@ -67,7 +63,11 @@ function predictColor(cols) {
 	fetch("/predict", config)
 		.then(res => {
 			res.json().then(_v => {
-				console.log(_v);
+				let el = _v.colors.indexOf(Math.max.apply(null, _v.colors));
+				console.log(colorCollection[el]);
+				document.querySelector(".color").innerHTML = `Color : ${
+					colorCollection[el]
+				}`;
 			});
 		})
 		.catch(err => {
