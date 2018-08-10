@@ -1,0 +1,52 @@
+canvas {
+	border: 10px solid black;
+	float: left;
+}
+.buttons {
+	float: left;
+	width: 100px;
+}
+.color-selector {
+	/* float: left; */
+	height: 40px;
+	margin: 1px;
+	width: 70px;
+	font-weight: bold;
+	border: 2px solid black;
+	cursor: pointer;
+}
+
+.color {
+	border: 1px solid black;
+}
+
+.purple {
+	background: purple;
+}
+.pink {
+	background: pink;
+}
+.blue {
+	background: blue;
+}
+.green {
+	background: green;
+}
+.yellow {
+	background: yellow;
+}
+.orange {
+	background: orangered;
+}
+.red {
+	background: red;
+}
+.grey {
+	background: grey;
+}
+.brown {
+	background: brown;
+}
+.white {
+	background: white;
+}

@@ -1,0 +1,17 @@
+{
+	"name": "careval",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./scripts/train/server.js",
+	"scripts": {
+		"train": "node scripts/train/server.js"
+	},
+	"author": "Velan Salis",
+	"license": "ISC",
+	"dependencies": {
+		"brain.js": "^1.2.4",
+		"body-parser": "^1.18.3",
+		"ejs": "^2.6.1",
+		"express": "^4.16.3"
+	}
+}
