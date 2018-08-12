@@ -1,13 +1,12 @@
 const net = require("./brain");
 const data = require("./data");
+const fs = require("fs");
 
 async function train() {
 	let stuffs = await data.convertData();
 	for (i = 0; i < stuffs.length; i++) {
-		console.log(stuffs[i]);
-		net.train(stuffs[i], {
-			iterations: 500,
-			errorThresh: 0.5,
+		await net.train(stuffs[i], {
+			iterations: 5000,
 			log: true
 		});
 	}

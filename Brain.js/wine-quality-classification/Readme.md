@@ -8,7 +8,7 @@ First clone or download the repository to your local machine and install all the
 
 ```
 git clone https://github.com/velansalis/xp_MachineLearning
-cd xp_MachineLearning/brain.js/mnist-digit-classifier
+cd xp_MachineLearning/brain.js/wine-quality-classification
 npm install
 ```
 
