@@ -17,7 +17,7 @@ async function convertData() {
 					input = [];
 				_.map(val, function(_val) {
 					// Here we take individual value from current object
-					if (i == _.size(val) - 1) output.push(_val / 10);
+					if (i == _.size(val) - 1) output = createOneHot(_val);
 					else input.push(_val / 100);
 					i++;
 				});
@@ -29,6 +29,19 @@ async function convertData() {
 		});
 	return convertedArray;
 }
+
+function createOneHot(val) {
+	let current = [];
+	for (i = 0; i < 10; i++) {
+		if (i == val) {
+			current.push(1);
+		} else {
+			current.push(0);
+		}
+	}
+	return current;
+}
+
 module.exports = {
 	convertData: convertData
 };
