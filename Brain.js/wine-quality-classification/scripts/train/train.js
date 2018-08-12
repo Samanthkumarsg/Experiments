@@ -13,19 +13,11 @@ async function train() {
 	}
 }
 
-async function predict() {}
-
 train()
 	.then(async data => {
-		console.log(data);
-		let obj = [7.8, 0.58, 0.02, 2.0, 0.073, 9.0, 18.0, 0.9968, 3.36, 0.57, 9.5];
-		let ys = [];
-		obj.forEach(val => {
-			ys.push(val / 100);
+		fs.writeFile("model.json", JSON.stringify(net.toJSON()), function(err) {
+			if (err) return console.log(err);
+			console.log("The trained model is saved as model.json");
 		});
-		console.log(ys);
-		let prediction = await net.run(ys);
-		let el = prediction.indexOf(Math.max.apply(null, prediction));
-		console.log(el);
 	})
 	.catch(err => console.log(err));
