@@ -1,0 +1,9 @@
+/* colors */
+.primary-bg {
+  background-color: rgb(204, 67, 67);
+  padding: 1em;
+}
+
+nav {
+  height: 5em;
+}
