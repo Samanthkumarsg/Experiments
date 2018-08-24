@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { GetRedditService } from "../../services/get-reddit.service";
+import { GetRedditService } from "../services/get-reddit.service";
 
 @Component({
   selector: "app-content",
@@ -8,7 +8,7 @@ import { GetRedditService } from "../../services/get-reddit.service";
 })
 export class ContentComponent implements OnInit {
   data: any;
-  category: string = "history";
+  category: string = "sports";
   constructor(private service: GetRedditService) {}
 
   gotoReddit(data) {

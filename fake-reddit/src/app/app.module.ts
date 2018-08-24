@@ -3,11 +3,10 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./root/app.component";
-import { NavComponent } from "./components/nav/nav.component";
-import { ContentComponent } from "./components/content/content.component";
+import { ContentComponent } from "./content/content.component";
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, ContentComponent],
+  declarations: [AppComponent, ContentComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
