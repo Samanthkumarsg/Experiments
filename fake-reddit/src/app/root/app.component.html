@@ -1,2 +1,21 @@
-<app-nav></app-nav>
+<nav>
+    <a href="" class="nav-heading black-text">Fake Reddit</a>
+    <ul>
+        <li>
+            <a href="#" (click)="getContent('sports')">Sports</a>
+        </li>
+        <li>
+            <a href="#" (click)="getContent('history')">History</a>
+        </li>
+        <li>
+            <a href="#" (click)="getContent('quotes')">Quotes</a>
+        </li>
+        <li>
+            <a href="#" (click)="getContent('art')">Art</a>
+        </li>
+        <li>
+            <a href="#" (click)="getContent('stocks')">Stocks</a>
+        </li>
+    </ul>
+</nav>
 <app-content></app-content>
