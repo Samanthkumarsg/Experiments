@@ -40,3 +40,20 @@ form > input[type="submit"] {
   border: 0;
   cursor: pointer;
 }
+
+/* Content */
+.author {
+  font-size: 0.8em;
+  color: grey;
+}
+.title {
+  font-size: 1.5em;
+}
+.category {
+  display: block;
+  color: white;
+  font-weight: bold;
+  background-color: steelblue;
+  text-align: center;
+  width: 5em;
+}
