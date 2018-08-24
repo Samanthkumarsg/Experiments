@@ -10,6 +10,6 @@ export class GetRedditService {
   constructor(private http: HttpClient) {}
 
   getReddit(content) {
-    return this.http.get(this.url + content + "/top.json");
+    return this.http.get<any>(this.url + content + "/top.json");
   }
 }

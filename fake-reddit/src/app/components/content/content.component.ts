@@ -7,7 +7,7 @@ import { GetRedditService } from "../../services/get-reddit.service";
   styleUrls: ["./content.component.css"]
 })
 export class ContentComponent implements OnInit {
-  data: Object;
+  data: any;
   category: string = "history";
   constructor(private service: GetRedditService) {}
 
@@ -16,10 +16,14 @@ export class ContentComponent implements OnInit {
   }
 
   getReddit() {
-    this.service.getReddit(this.category).subscribe(res => {
-      console.log(res.data.children[0]);
-      this.data = res.data.children;
-    });
+    this.service.getReddit(this.category).subscribe(
+      res => {
+        this.data = res.data.children;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   ngOnInit() {
