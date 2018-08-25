@@ -7,8 +7,8 @@ This project in this repository is my `REST API` experiment, it is to manage the
 Copy and paste following code on your terminal
 
 ```
-https://github.com/velansalis/xp_REST-API.git
-cd xp_REST-API
+https://github.com/velansalis/REST-API.xpmt.git
+cd REST-API.xpmt
 npm install
 npm run start
 ```
