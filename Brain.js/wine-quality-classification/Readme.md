@@ -7,8 +7,8 @@ This datasets is related to red variants of the Portuguese "Vinho Verde" wine. F
 First clone or download the repository to your local machine and install all the dependencies by running the following code.
 
 ```
-git clone https://github.com/velansalis/xp_MachineLearning
-cd xp_MachineLearning/brain.js/wine-quality-classification
+git clone https://github.com/velansalis/MachineLearning.xpmt
+cd MachineLearning.xpmt/brain.js/wine-quality-classification
 npm install
 ```
 
