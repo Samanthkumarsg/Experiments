@@ -1,12 +1,4 @@
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <hr>
-  <div>
-    <label for="hero">Name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 <div class="heroList">
   <h2>My Heroes</h2>
   <ul class="heroes">
