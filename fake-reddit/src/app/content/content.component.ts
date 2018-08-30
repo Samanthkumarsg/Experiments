@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { GetRedditService } from "../services/get-reddit.service";
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-content",
@@ -8,15 +10,19 @@ import { GetRedditService } from "../services/get-reddit.service";
 })
 export class ContentComponent implements OnInit {
   data: any;
-  category: string = "sports";
-  constructor(private service: GetRedditService) {}
+  constructor(
+    private service: GetRedditService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
   gotoReddit(data) {
     window.open("https://reddit.com" + data, "_blank");
   }
 
   getReddit() {
-    this.service.getReddit(this.category).subscribe(
+    const category = this.route.snapshot.paramMap.get("category");
+    this.service.getReddit(category).subscribe(
       res => {
         this.data = res.data.children;
       },

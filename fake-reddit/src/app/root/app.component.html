@@ -2,20 +2,20 @@
     <a href="" class="nav-heading black-text">Fake Reddit</a>
     <ul>
         <li>
-            <a href="#" (click)="getContent('sports')">Sports</a>
+            <a routerLink="posts/sports" (click)="getReddit()">Sports</a>
         </li>
         <li>
-            <a href="#" (click)="getContent('history')">History</a>
+            <a routerLink="posts/history" (click)="getReddit()">History</a>
         </li>
         <li>
-            <a href="#" (click)="getContent('quotes')">Quotes</a>
+            <a routerLink="posts/quotes" (click)="getReddit()">Quotes</a>
         </li>
         <li>
-            <a href="#" (click)="getContent('art')">Art</a>
+            <a routerLink="posts/art" (click)="getReddit()">Art</a>
         </li>
         <li>
-            <a href="#" (click)="getContent('stocks')">Stocks</a>
+            <a routerLink="posts/stocks" (click)="getReddit()">Stocks</a>
         </li>
     </ul>
 </nav>
-<app-content></app-content>
+<router-outlet></router-outlet>
