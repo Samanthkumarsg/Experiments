@@ -1,3 +1,5 @@
-# Experiments with Freecodecamp.org projects
+# My Freecodecamp.org projects
 
-My Freecodecamp Projects !
+My projects with freecodecamp. freeCodeCamp is a non-profit organization that consists of an interactive learning web platform, an online community forum, chat rooms, Medium publications and local organizations that intend to make learning web development accessible to anyone.
+
+- Tribute Page
