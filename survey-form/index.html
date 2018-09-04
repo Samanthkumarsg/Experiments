@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <h1 id="title">Survey Form</h1>
+    <div id="main">
+        <p id="description">
+            In research of human subjects, a survey is a list of questions aimed at extracting specific data from a particular group
+            of people. Surveys may be conducted by phone, mail, via the internet, and sometimes face-to-face on busy street
+            corners or in malls. Surveys are used to increase knowledge in fields such as social research and demography.
+            Survey research is often used to assess thoughts, opinions, and feelings. Surveys can be specific and limited,
+            or they can have more global, widespread goals.
+        </p>
+        <form action="" id="survey-form">
+            <label for="name" id="name-label">
+                <input type="text" id="name" placeholder="Enter the name" required>
+            </label>
+            <label for="email" id="email-label">
+                <input type="email" name="email" id="email" placeholder="Enter the email" required>
+            </label>
+            <label for="number" id="number-label">
+                <input type="number" name="number" id="number" min="5" max="10" placeholder="Enter the number">
+            </label>
+            <label for="dropdown">
+                <select name="cars" id="dropdown">
+                    <option value="volvo">Volvo</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="alto">Alto</option>
+                </select>
+            </label>
+            <label for="radio" id="male-label">
+                <input type="radio" name="name" id="male" value="1">Male
+            </label>
+            <label for="radio" id="female-label">
+                <input type="radio" name="name" id="female" value="2">Female
+            </label>
+            <label for="radio" id="car-label">
+                <input type="checkbox" name="name" id="car" value="1">Male
+            </label>
+            <label for="radio" id="bicycle-label">
+                <input type="checkbox" name="name" id="bicycle" value="2">Female
+            </label>
+            <textarea rows="4" cols="50">
+            </textarea>
+            <input type="submit" id="submit" value="Submit Values">
+        </form>
+    </div>
+    <script src="./dist/index.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js
+    "></script>
+</body>
+
+</html>
