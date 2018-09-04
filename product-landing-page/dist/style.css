@@ -1,0 +1,39 @@
+body,
+html {
+	margin: 0;
+}
+#header {
+	height: 6em;
+}
+#header-img {
+	height: inherit;
+	float: left;
+}
+#nav-bar {
+	display: flex;
+	height: inherit;
+	justify-content: flex-end;
+}
+#nav-bar > ul {
+	margin: 0;
+}
+#nav-bar > ul > li {
+	float: left;
+	list-style-type: none;
+	padding: 2.4em;
+}
+#nav-bar > ul > li:hover {
+	float: left;
+	list-style-type: none;
+	padding: 2.4em;
+	background-color: antiquewhite;
+}
+@media screen and (max-width: 525px) {
+	#nav-bar > ul {
+		display: none;
+	}
+}
+#nav-bar > ul > li > a {
+	text-decoration: none;
+	color: lightslategrey;
+}
