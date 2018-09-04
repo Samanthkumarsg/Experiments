@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 body,
 html {
 	margin: 0;
+	font-family: Quicksand;
 }
 #header {
 	height: 6em;
@@ -13,6 +15,8 @@ html {
 	display: flex;
 	height: inherit;
 	justify-content: flex-end;
+	position: fixed;
+	width: 100%;
 }
 #nav-bar > ul {
 	margin: 0;
@@ -26,7 +30,7 @@ html {
 	float: left;
 	list-style-type: none;
 	padding: 2.4em;
-	background-color: antiquewhite;
+	background-color: lightyellow;
 }
 @media screen and (max-width: 525px) {
 	#nav-bar > ul {
@@ -36,4 +40,19 @@ html {
 #nav-bar > ul > li > a {
 	text-decoration: none;
 	color: lightslategrey;
+}
+.card-panel {
+	padding: 24px;
+	margin: 0.5rem auto 1rem auto;
+	border-radius: 2px;
+	background-color: #fff;
+	text-align: center;
+	width: 60vw;
+}
+label > input {
+	min-width: 95%;
+	margin: 0.2em 0 0.2em 0;
+	padding: 0.8em;
+	border-radius: 1em;
+	border: 1px solid black;
 }
