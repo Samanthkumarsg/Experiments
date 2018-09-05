@@ -48,6 +48,7 @@ html {
 	background-color: #fff;
 	text-align: center;
 	width: 60vw;
+	display: block;
 }
 label > input {
 	min-width: 95%;
