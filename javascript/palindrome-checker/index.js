@@ -6,7 +6,7 @@
 //     We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".
 
 function palindrome(str) {
-	let original = cleanStr(str);
+	let original = cleanStr(str); // Original String
 	if (original.join("") == original.reverse().join("")) {
 		return true;
 	} else {
@@ -15,17 +15,18 @@ function palindrome(str) {
 }
 
 function cleanStr(str) {
-	let divStr = str.split("");
+	let divStr = str.toLowerCase().split(""); // String is converted into array
 	let array = new Array();
-	divStr.forEach((element, index) => {
+	divStr.forEach(element => {
+		// Checking if an element is a character and a number
 		if (
-			(element > "a" && element < "z") ||
+			(element >= "a" && element <= "z") ||
 			(parseInt(element) >= 0 && parseInt(element) <= 9)
 		) {
 			array.push(element);
 		}
 	});
-	return array;
+	return array; // Returning the clean array
 }
 
-palindrome("eye");
+console.log(palindrome("My age is 0, 0 si ega ym."));
