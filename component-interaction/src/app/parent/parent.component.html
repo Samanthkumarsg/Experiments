@@ -1,5 +1,6 @@
 <p>
+  Text from Child is : {{ parentTextFromChild }}<br><br>
   <input placeholder="Enter Parent" [(ngModel)]="parentText">
   <app-child [anotherText]="parentText" (changeValue)="changeText($event)"></app-child>
-  {{ parentTextFromChild }}
+  <app-sibling></app-sibling>
 </p>
