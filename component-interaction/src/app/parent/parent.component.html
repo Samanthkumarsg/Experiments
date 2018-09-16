@@ -1,4 +1,5 @@
 <p>
-  parent works!
-  <app-child></app-child>
+  <input placeholder="Enter Parent" [(ngModel)]="parentText">
+  <app-child [anotherText]="parentText" (changeValue)="changeText($event)"></app-child>
+  {{ parentTextFromChild }}
 </p>
