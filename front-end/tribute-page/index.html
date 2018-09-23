@@ -2,23 +2,39 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <title>Tribute Page</title>
 </head>
 
 <body>
     <div id="main">
-        <h1 id="title">The Tribute Page</h1>
-        <div id="img-div">
-            <img id="image" src="https://picsum.photos/400/400" />
-            <p id="img-caption">
-                Just a random Image
-            </p>
+        <div class="cover-photo" id="img-div">
+            <img id="image" src="https://media.newyorker.com/photos/5ba177da9eb2f7420aadeb98/4:3/w_960,c_limit/Cohen-Linus-Torvalds.jpg"
+                alt="" class="profile-img" />
+            <h1 id="title">
+                linus torvalds
+            </h1>
+            <div id="img-caption">
+                The creator of linux and git.
+            </div>
         </div>
-        <p id="tribute-info">Just a tribute page for fun</p>
-        <a id="tribute-link" href="http://wikipedia.com" target="_blank" rel="noopener noreferrer">A link</a>
-    </div>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        <div class="container">
+            <div class="info">
+                <p class="description" id="tribute-info">
+                    Torvalds was born in Helsinki, Finland in 1969. He is the son of journalists Anna and Nils
+                    Torvalds, and the grandson of statistician Leo Törnqvist and of poet Ole Torvalds. Both of his
+                    parents were campus radicals at the University of Helsinki in the 1960s. His family belongs to the
+                    Swedish-speaking minority. Torvalds was named after Linus Pauling, the Nobel Prize–winning American
+                    chemist, although in the book Rebel Code: Linux and the Open Source Revolution, Torvalds is quoted
+                    as
+                    saying, "I think I was named equally for Linus the Peanuts cartoon character", noting that this
+                    makes
+                    him half "Nobel Prize–winning chemist" and half "blanket-carrying cartoon character".
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Linus_Torvalds" id="tribute-link" target="_blank">Read more</a>
+            </div>
+        </div>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
 </html>
