@@ -46,7 +46,7 @@ body {
 
 /* Sections */
 section {
-  padding: 1em;
+  margin: 1em;
   width: 70%;
   background-color: #ffffff;
   margin: 2em auto 0 auto;
@@ -70,7 +70,8 @@ section > .description {
 /* Welome Section */
 
 #welcome-section {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 #welcome-section > .title {
@@ -148,10 +149,28 @@ section > .description {
 }
 .flex-container > .git {
   background-color: darkslategray;
+  position: relative;
 }
 .flex-container > .fcc {
   background-color: forestgreen;
+  position: relative;
 }
+/* .flex-container > .git::after {
+  content: attr(data-name);
+  position: absolute;
+  color: black;
+  margin: 0 0.5em;
+  padding: 1em;
+  top: 0;
+}
+.flex-container > .fcc::after {
+  content: attr(data-name);
+  position: absolute;
+  color: black;
+  margin: 0 0.5em;
+  padding: 1em;
+  top: 0;
+} */
 
 /* Footer */
 footer {
