@@ -9,7 +9,3 @@ My projects with freecodecamp. freeCodeCamp is a non-profit organization that co
 - Product Landing Page
 - Technical Documentation
 - Personal Portfolio
-
-## Javascript certification
-
-- Palindrome checker
