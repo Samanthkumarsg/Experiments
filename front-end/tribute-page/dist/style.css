@@ -21,17 +21,19 @@ body {
   max-width: 15em;
   max-height: 15em;
   border-radius: 50%;
-  border: 5px solid white;
   object-fit: cover;
   object-position: top;
+  outline: 5px;
+  outline-color: white;
+  outline-offset: 1em;
 }
 
 #title {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 1000;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  text-decoration: wavy;
+  -webkit-text-stroke: 2px black;
 }
 
 .container {
@@ -64,9 +66,10 @@ body {
   margin: 0 auto;
   padding: 1em;
   font-weight: bold;
-  background-color: grey;
+  background-color: rgb(155, 155, 155);
   color: white;
-  font-weight: bold;
+  font-weight: 1000;
+  font-size: 1.2em;
   text-transform: capitalize;
   border-radius: 10px;
 }

@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+header {
+  min-height: 10em;
+  background-color: slateblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-size: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
