@@ -11,6 +11,17 @@ body {
   margin: 0;
 }
 
+nav-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Montserrat";
+  background-color: rgb(17, 17, 17);
+  color: white;
+}
+
 .container {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -60,6 +71,15 @@ nav a:hover {
   height: 100vh;
 }
 
+.main-section > * {
+  font-family: Nunito Sans;
+}
+
+.main-section > header {
+  font-family: Ubuntu Mono;
+  font-size: 2em;
+}
+
 @media screen and (max-width: 550px) {
   .container {
     grid-template-columns: 30% 70%;
@@ -70,4 +90,14 @@ nav a:hover {
   nav a {
     font-size: 0.7em;
   }
+}
+
+code {
+  font-family: monospace;
+  color: white;
+  letter-spacing: 3px;
+  display: block;
+  border-radius: 10px;
+  padding: 1em;
+  background-color: rgb(17, 17, 17);
 }
