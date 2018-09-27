@@ -7,8 +7,8 @@ A tourism management system implemented with REST API and JSON web tokens for ma
 Copy and paste following code on your terminal
 
 ```
-https://github.com/velansalis/REST-API.xpmt.git
-cd REST-API.xpmt/Tour-API
+https://github.com/velansalis/API.xpmt.git
+cd API.xpmt/Tour-API
 npm install
 npm run start
 ```
