@@ -1,59 +1,40 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
-body,
-html {
-	margin: 0;
-	font-family: Quicksand;
+
+body {
+  margin: 0;
 }
-#header {
-	height: 6em;
+
+header {
+  height: auto;
 }
-#header-img {
-	height: inherit;
-	float: left;
+
+nav {
+  display: flex;
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 5em;
+  background-color: rgb(199, 64, 64);
+  transition: all 1s;
 }
-#nav-bar {
-	display: flex;
-	height: inherit;
-	justify-content: flex-end;
-	position: fixed;
-	width: 100%;
+nav > .logo {
+  height: calc(100% - 15px);
+  margin-left: 1em;
 }
-#nav-bar > ul {
-	margin: 0;
+nav > a {
+  text-decoration: none;
+  padding: 0 1em 0 1em;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
-#nav-bar > ul > li {
-	float: left;
-	list-style-type: none;
-	padding: 2.4em;
+nav > a:hover {
+  text-decoration: underline;
 }
-#nav-bar > ul > li:hover {
-	float: left;
-	list-style-type: none;
-	padding: 2.4em;
-	background-color: lightyellow;
-}
-@media screen and (max-width: 525px) {
-	#nav-bar > ul {
-		display: none;
-	}
-}
-#nav-bar > ul > li > a {
-	text-decoration: none;
-	color: lightslategrey;
-}
-.card-panel {
-	padding: 24px;
-	margin: 0.5rem auto 1rem auto;
-	border-radius: 2px;
-	background-color: #fff;
-	text-align: center;
-	width: 60vw;
-	display: block;
-}
-label > input {
-	min-width: 95%;
-	margin: 0.2em 0 0.2em 0;
-	padding: 0.8em;
-	border-radius: 1em;
-	border: 1px solid black;
+@media screen and (max-width: 540px) {
+  nav > a {
+    display: none;
+  }
 }
