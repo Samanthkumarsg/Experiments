@@ -1,6 +1,6 @@
-# Experiments with REST API
+# Tour API
 
-This project in this repository is my `REST API` experiment, it is to manage the tourism based business electronically through REST API methodology. All the requests and responses are made by `HTTP` and a sophisticated API handles all of it. This application uses `JWT` instead of sessions
+A tourism management system implemented with REST API and JSON web tokens for maintaining the user session. Implemened with Node server and Mongo Database.
 
 ### Installation
 
@@ -8,7 +8,7 @@ Copy and paste following code on your terminal
 
 ```
 https://github.com/velansalis/REST-API.xpmt.git
-cd REST-API.xpmt
+cd REST-API.xpmt/Tour-API
 npm install
 npm run start
 ```
@@ -34,6 +34,6 @@ Where `126fhs2` is the ID of the user
 | orders   | GET, PUT, POST, DELETE, PATCH | Manages the orders made by the user                                         |
 | logs     | GET                           | Returns all the transactions and actions done by the user on the server     |
 
-### Tailend
+### Info
 
 This project is just a representation of how the node server works when Implemented with REST API and JSON web tokens. POST, DELETE and other requests can be made by using any applications like Postman or any other applications or techniques.
