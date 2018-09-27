@@ -4,8 +4,8 @@ My projects with freecodecamp. freeCodeCamp is a non-profit organization that co
 
 ## Front end certification
 
-- Tribute Page
-- Survey Form
-- Product Landing Page
-- Technical Documentation
-- Personal Portfolio
+- [x] Tribute Page
+- [x] Survey Form
+- [x] Product Landing Page
+- [x] Technical Documentation
+- [x] Personal Portfolio
