@@ -4,4 +4,4 @@ This project in this repository is my experiment with the API architechture and 
 
 ## Projects
 
-- [Tour API](https://github.com/velansalis/REST-API.xpmt/tree/master/Tour-API) - `Node`,`Mongo`,`REST API`,`JWT`
+- [Tour JWT Rest API](https://github.com/velansalis/REST-API.xpmt/tree/master/Tour-API) - `Node`,`Mongo`,`REST API`,`JWT`
