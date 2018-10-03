@@ -1,15 +1,9 @@
-function sumAll(arr) {
-  let startOff = arr[0],
-    endOff = arr[1],
-    sum = 0;
-  if (endOff < startOff) {
-    endOff = arr[0];
-    startOff = arr[1];
-  }
-  for (let i = startOff; i <= endOff; i++) {
-    sum += i;
-  }
-  return sum;
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  arr1.forEach(element => {
+    if (arr2.indexOf(element)) newArr.push(element);
+  });
+  return newArr;
 }
 
-console.log(sumAll([4, 2]));
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
