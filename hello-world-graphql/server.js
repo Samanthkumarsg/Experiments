@@ -1,16 +1,19 @@
+// Importing Dependencies
 var express = require("express");
 var graphqlHTTP = require("express-graphql");
 var { buildSchema } = require("graphql");
 
+// Initializing Express to App
+var app = express();
+
+// Defining the Schema
 var schema = buildSchema(`
-  type Query {
-    hello: String
+  type Query{
+
   }
 `);
 
-var root = { hello: () => "Hello world!" };
-
-var app = express();
+// Defining Graphql Schema
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -19,4 +22,6 @@ app.use(
     graphiql: true
   })
 );
-app.listen(4000, () => console.log("Now browse to localhost:4000/graphql"));
+
+// Listening on the port
+app.listen(4000, () => console.log("Server Open at 4000"));
