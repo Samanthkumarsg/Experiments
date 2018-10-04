@@ -26,7 +26,12 @@ var values = [
 const resolvers = {
   Query: {
     hello: () => "world",
-    person: (root, args, context, info) => {}
+    person: (root, args, context, info) => {
+      console.log(args);
+      return values.filter(val => {
+        val.id === args.id;
+      });
+    }
   }
 };
 
