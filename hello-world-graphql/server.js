@@ -1,27 +1,42 @@
-// Importing Dependencies
-var express = require("express");
-var graphqlHTTP = require("express-graphql");
-var { buildSchema } = require("graphql");
+const { ApolloServer, gql } = require("apollo-server");
 
-// Initializing Express to App
-var app = express();
-
-// Defining the Schema
-var schema = buildSchema(`
-  type Query{
-
+// The GraphQL schema
+const typeDefs = gql`
+  type Person {
+    id: Int
+    name: String
+    lname: String
   }
-`);
+  type Query {
+    hello: String
+    person(id: Int!): Person
+  }
+`;
 
-// Defining Graphql Schema
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true
-  })
-);
+var values = [
+  { id: 1, name: "Velan", lname: "Salis" },
+  { id: 2, name: "Vion", lname: "Salis" },
+  { id: 3, name: "Mark", lname: "Salis" },
+  { id: 4, name: "Flavia", lname: "Salis" },
+  { id: 5, name: "Ashwath", lname: "Salis" },
+  { id: 6, name: "Jeffrey", lname: "Salis" }
+];
 
-// Listening on the port
-app.listen(4000, () => console.log("Server Open at 4000"));
+// A map of functions which return data for the schema.
+const resolvers = {
+  Query: {
+    hello: () => "world",
+    person: (root, args, context, info) => {
+      return values[args.id];
+    }
+  }
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
