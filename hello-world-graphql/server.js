@@ -26,9 +26,7 @@ var values = [
 const resolvers = {
   Query: {
     hello: () => "world",
-    person: (root, args, context, info) => {
-      return values[args.id];
-    }
+    person: (root, args, context, info) => {}
   }
 };
 
