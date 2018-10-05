@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title">
+            The Anime Survey Form
+        </h1>
+        <p id="description">
+            Just an Anime form for the fun of it :)
+        </p>
+    </header>
+    <main>
+        <section id="form-container">
+            <form action="" id="survey-form">
+                <div class="wrapper">
+                    <label for="name" id="name-label">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter the name" required>
+                </div>
+                <div class="wrapper">
+                    <label for="email" id="email-label">Username</label>
+                    <input type="email" name="email" id="email" placeholder="Enter the email" required>
+                </div>
+                <div class="wrapper">
+                    <label for="number" id="number-label">Number of episodes per week</label>
+                    <input type="number" name="number" id="number" min="5" max="10" placeholder="Enter the number">
+                </div>
+                <div class="wrapper">
+                    <label for="dropdown">Chose the Anime</label>
+                    <select name="anime" id="dropdown">
+                        <option value="volvo">One Piece</option>
+                        <option value="fiat">My Hero Academia</option>
+                        <option value="alto">Death Note</option>
+                    </select>
+                </div>
+                <div class="wrapper col-div">
+                    <div class="segment">
+                        <input type="radio" name="name" id="male" value="1">
+                        <label for="radio" id="male-label">Male</label>
+                    </div>
+                    <div class="segment">
+                        <input type="radio" name="name" id="female" value="2">
+                        <label for="radio" id="female-label">Female</label>
+                    </div>
+                </div>
+                <div class="wrapper col-div">
+                    <div class="segment">
+                        <input type="checkbox" name="name" id="car" value="1">
+                        <label for="radio" id="car-label">Action Anime</label>
+                    </div>
+                    <div class="segment">
+                        <input type="checkbox" name="name" id="bicycle" value="2">
+                        <label for="radio" id="bicycle-label">Comedy Anime</label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <label for="comments">Comments</label>
+                    <textarea rows="4" id="comments"></textarea>
+                </div>
+                <div class="wrapper">
+                    <input type="submit" id="submit" value="Submit Values">
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="./dist/index.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js
+    "></script>
+</body>
+
+</html>
