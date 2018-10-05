@@ -1,4 +1,4 @@
-var values = require("./mock-server");
+var values = require("../mock-server");
 
 module.exports = {
   Query: {
