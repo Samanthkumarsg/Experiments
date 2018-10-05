@@ -1,0 +1,17 @@
+<div class="card-panel z-depth-0">
+    <div class="container">
+        <div class="card-panel row" *ngFor="let content of data" (click)="gotoReddit(content.data.permalink)">
+            <div class="col l6 m6 s12">
+                <span class="category">{{ content.data.subreddit }}</span>
+                <br>
+                <img [src]="content.data.thumbnail" alt="">
+            </div>
+            <div class="col l6 m6 s12">
+                <span class="author">{{ content.data.author }}</span>
+                <br>
+                <span class="title">{{ content.data.title }}</span>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
