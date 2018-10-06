@@ -1,0 +1,14 @@
+html,
+body {
+	margin: 0;
+}
+canvas {
+	margin-top: 20px;
+	border: 5px solid black;
+}
+.content {
+	width: 100%;
+	text-align: center;
+	font-family: "arial";
+	font-weight: bold;
+}

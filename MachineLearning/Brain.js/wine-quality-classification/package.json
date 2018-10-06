@@ -1,0 +1,16 @@
+{
+	"name": "wine-quality",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./scripts/train/train.js",
+	"scripts": {
+		"train": "node ./scripts/train/train.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"brain.js": "^1.2.4",
+		"csvtojson": "^2.0.8",
+		"lodash": "^4.17.10"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "tensorflow.js",
+	"version": "1.0.0",
+	"description": "Machine Learning Models using Tensorflow.js",
+	"main": "null",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"tensorflow",
+		"machine",
+		"learning"
+	],
+	"author": "Velan Salis",
+	"license": "ISC",
+	"dependencies": {
+		"@tensorflow/tfjs": "^0.12.0"
+	}
+}
