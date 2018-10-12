@@ -1,21 +1,21 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const trainImages = fs.readFileSync(
-	__dirname + "/../../data/train-images-idx3-ubyte"
+	__dirname + '/../../data/train-images.idx3-ubyte'
 );
 const trainLabels = fs.readFileSync(
-	__dirname + "/../../data/train-labels-idx1-ubyte"
+	__dirname + '/../../data/train-labels.idx1-ubyte'
 );
 const testImages = fs.readFileSync(
-	__dirname + "/../../data/t10k-images-idx3-ubyte"
+	__dirname + '/../../data/t10k-images.idx3-ubyte'
 );
 const testLabels = fs.readFileSync(
-	__dirname + "/../../data/t10k-labels-idx1-ubyte"
+	__dirname + '/../../data/t10k-labels.idx1-ubyte'
 );
 let trainValues = new Array();
 let testValues = new Array();
 
-console.log("Converting training data . .");
+console.log('Converting training data . .');
 for (var image = 0; image < 60000; image++) {
 	var pixels = new Array();
 	for (var y = 0; y < 28; y++) {
@@ -28,7 +28,7 @@ for (var image = 0; image < 60000; image++) {
 	trainValues.push(imageData);
 }
 console.log(`Converted training data with ${trainValues.length} records`);
-console.log("Converting testing data . .");
+console.log('Converting testing data . .');
 for (var image = 0; image < 10000; image++) {
 	var pixels = new Array();
 	for (var y = 0; y < 28; y++) {
