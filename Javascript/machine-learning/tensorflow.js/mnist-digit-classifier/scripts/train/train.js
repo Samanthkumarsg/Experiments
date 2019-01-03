@@ -1,9 +1,9 @@
 // Importing Model
-let model = require("./model").model;
-let tf = require("./model").tf;
+let model = require('./model').model;
+let tf = require('./model').tf;
 
 // Getting the training and testing data
-let data = require("./mnist");
+let data = require('./mnist');
 
 let trainingSet = data.values.trainSet;
 let testingSet = data.values.testSet;
@@ -38,9 +38,7 @@ const train = async function() {
 			testYtensor = tf
 				.tensor1d(testBatch.y)
 				.reshape([testBatchSize, 28, 28, 1]);
-			console.log(
-				`-------------------------------------------------------`
-			);
+			console.log(`-------------------------------------------------------`);
 			validator = [testYtensor, testXtensor];
 			j++;
 		}
@@ -67,23 +65,19 @@ const train = async function() {
 
 train()
 	.then(async data => {
-		let saved = await data.model.save(
-			"file://" + __dirname + "/../../model"
-		);
-		console.log("------------------------------------------------");
-		console.log("Training Done");
-		console.log("------------------------------------------------");
+		let saved = await data.model.save('file://' + __dirname);
+		console.log('------------------------------------------------');
+		console.log('Training Done');
+		console.log('------------------------------------------------');
 		console.log(
-			`Number of tensors - ${data.memory.numTensors}\nLoss - ${data
-				.metrics.loss[0] * 100}\nAccuracy - ${data.metrics.acc[0] *
+			`Number of tensors - ${data.memory.numTensors}\nLoss - ${data.metrics
+				.loss[0] * 100}\nAccuracy - ${data.metrics.acc[0] *
 				100}\nModel Informations - \n`
 		);
 		console.log(saved.modelArtifactsInfo);
-		console.log(
-			"Model is saved to the location file://" +
-				__dirname +
-				"/../../model/"
-		);
-		console.log("\n------------------------------------------------");
+		console.log('Model is saved to the location file://' + __dirname);
+		console.log('\n------------------------------------------------');
 	})
-	.catch();
+	.catch(err => {
+		console.log(err);
+	});
