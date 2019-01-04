@@ -1,5 +1,5 @@
-const tf = require("@tensorflow/tfjs");
-require("@tensorflow/tfjs-node");
+const tf = require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
 
 const model = tf.sequential();
 model.add(
@@ -8,8 +8,8 @@ model.add(
 		kernelSize: 5,
 		filters: 8,
 		strides: 1,
-		activation: "relu",
-		kernelInitializer: "varianceScaling"
+		activation: 'relu',
+		kernelInitializer: 'varianceScaling'
 	})
 );
 model.add(tf.layers.maxPooling2d({ poolSize: [2, 2], strides: [2, 2] }));
@@ -18,8 +18,8 @@ model.add(
 		kernelSize: 5,
 		filters: 16,
 		strides: 1,
-		activation: "relu",
-		kernelInitializer: "varianceScaling"
+		activation: 'relu',
+		kernelInitializer: 'varianceScaling'
 	})
 );
 model.add(tf.layers.maxPooling2d({ poolSize: [2, 2], strides: [2, 2] }));
@@ -27,8 +27,8 @@ model.add(tf.layers.flatten());
 model.add(
 	tf.layers.dense({
 		units: 10,
-		kernelInitializer: "varianceScaling",
-		activation: "softmax"
+		kernelInitializer: 'varianceScaling',
+		activation: 'softmax'
 	})
 );
 
@@ -36,11 +36,8 @@ const LEARNING_RATE = 0.15;
 const optimizer = tf.train.sgd(LEARNING_RATE);
 model.compile({
 	optimizer: optimizer,
-	loss: "categoricalCrossentropy",
-	metrics: ["accuracy"]
+	loss: 'categoricalCrossentropy',
+	metrics: ['accuracy']
 });
 
-module.exports = {
-	model: model,
-	tf: tf
-};
+module.exports = model;

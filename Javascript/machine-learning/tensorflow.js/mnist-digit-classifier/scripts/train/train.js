@@ -1,15 +1,19 @@
-// Importing Model
-let model = require('./model').model;
-let tf = require('./model').tf;
+// Importing libraries
+const tf = require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
 
 // Getting the training and testing data
 let data = require('./mnist');
 
+// Importing Model
+let model = require('./model');
+
 let trainingSet = data.values.trainSet;
 let testingSet = data.values.testSet;
+
 let trainBatchSize = 60;
 let testBatchSize = 100;
-let trainIterations = 700;
+let trainIterations = 700; // 700
 let testIterations = 50;
 
 const train = async function() {
@@ -27,7 +31,7 @@ const train = async function() {
 			.tensor1d(trainBatch.y)
 			.reshape([trainBatchSize, 28, 28, 1]);
 		trainXtensor = tf.oneHot(trainBatch.x, 10);
-		console.log(`Imported Training Batch - ${i}`);
+		// console.log(`Imported Training Batch - ${i}`);
 		if (i % testIterations === 0) {
 			if (j > 0) {
 				testXtensor.dispose();
@@ -38,7 +42,7 @@ const train = async function() {
 			testYtensor = tf
 				.tensor1d(testBatch.y)
 				.reshape([testBatchSize, 28, 28, 1]);
-			console.log(`-------------------------------------------------------`);
+			console.log(`--------------------TESTING----------------------`);
 			validator = [testYtensor, testXtensor];
 			j++;
 		}
@@ -49,10 +53,6 @@ const train = async function() {
 		});
 		let metrics = history.history;
 		if (i == trainIterations - 1) generalMetrics = metrics;
-		console.log(
-			`Loss - ${metrics.loss[0] * 100}% , Accuracy - ${metrics.acc[0] *
-				100}%, Tensors - ${tf.memory().numTensors}`
-		);
 		trainXtensor.dispose();
 		trainYtensor.dispose();
 	}
@@ -65,18 +65,14 @@ const train = async function() {
 
 train()
 	.then(async data => {
-		let saved = await data.model.save('file://' + __dirname);
-		console.log('------------------------------------------------');
-		console.log('Training Done');
-		console.log('------------------------------------------------');
-		console.log(
-			`Number of tensors - ${data.memory.numTensors}\nLoss - ${data.metrics
-				.loss[0] * 100}\nAccuracy - ${data.metrics.acc[0] *
-				100}\nModel Informations - \n`
-		);
-		console.log(saved.modelArtifactsInfo);
-		console.log('Model is saved to the location file://' + __dirname);
-		console.log('\n------------------------------------------------');
+		await data.model
+			.save('file://' + __dirname + '/../../')
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	})
 	.catch(err => {
 		console.log(err);
