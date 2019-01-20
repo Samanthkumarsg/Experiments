@@ -1,9 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 body,
 html {
 	margin: 0;
 }
 
-#mapid {
+#map {
 	height: 100vh;
 	width: 100vw;
+	z-index: 1;
+}
+
+#loader {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	z-index: 2;
+	transition: all 1s ease-in-out;
+	overflow: hidden;
+}
+.loader-img {
+	height: 5em;
+	width: auto;
+}
+
+.title {
+	font-family: 'ZCOOL KuaiLe', cursive;
+}
+.sub-title {
+	font-family: 'Indie Flower', cursive;
+}
+.paragraph {
+	font-family: 'Comfortaa', cursive;
 }
