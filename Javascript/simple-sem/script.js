@@ -22,16 +22,12 @@ L.tileLayer(
 
 // Click event
 mymap.on('click', function(ev) {
-	mymap.flyTo([51.305, -0.09], 12);
+	var x = Math.random() * 50;
+	var y = Math.random() * 50;
+	mymap.flyTo([x, -y], 12);
 });
 
 // Event triggered after the map pans
 mymap.on('moveend', function() {
 	console.log(mymap.getCenter().toString());
 });
-
-window.onpopstate = function(event) {
-	console.log(
-		'location: ' + document.location + ', state: ' + JSON.stringify(event.state)
-	);
-};
