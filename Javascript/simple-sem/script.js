@@ -1,5 +1,7 @@
-var mymap = L.map('mapid', {
-	center: [51.505, -0.09],
+let initpos = [51.505, -0.09];
+
+const mymap = L.map('mapid', {
+	center: initpos,
 	zoom: 12,
 	zoomControl: false,
 	maxZoom: 40,
@@ -20,11 +22,15 @@ L.tileLayer(
 	}
 ).addTo(mymap);
 
+function takeRandomPosition() {
+	var x = initpos[0] - (Math.random() - 0.5);
+	var y = initpos[1] - (Math.random() - 0.5);
+	mymap.flyTo([x, y], 12);
+}
+
 // Click event
 mymap.on('click', function(ev) {
-	var x = Math.random() * 50;
-	var y = Math.random() * 50;
-	mymap.flyTo([x, -y], 12);
+	takeRandomPosition();
 });
 
 // Event triggered after the map pans
