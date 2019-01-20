@@ -2,6 +2,7 @@ window.onload = () => {
 	let loader = document.getElementById('loader');
 	loader.style.height = 0;
 	let initpos = [51.505, -0.09];
+	console.log(window.location.hash);
 
 	const mymap = L.map('map', {
 		center: initpos,
@@ -41,7 +42,7 @@ window.onload = () => {
 	mymap.on('moveend', function() {
 		setTimeout(() => {
 			loader.style.height = 0;
-		}, 600);
+		}, 1200);
 		console.log(mymap.getCenter().toString());
 	});
 };
