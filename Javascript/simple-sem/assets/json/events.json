@@ -1,0 +1,11 @@
+{
+	"events": [
+		{
+			"name": "Treasure Hunt",
+			"hash-name": "treasure-hunt",
+			"event-heads": ["Velan", "Vion", "Varun"],
+			"description": "Blah Blah",
+			"rules": ["rule1", "rule2", "rule3"]
+		}
+	]
+}
